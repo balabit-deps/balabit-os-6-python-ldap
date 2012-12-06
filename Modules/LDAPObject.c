@@ -1187,6 +1187,7 @@ l_ldap_whoami_s( LDAPObject* self, PyObject* args )
         if (!LDAPControls_from_object(clientctrls, &client_ldcs))
             return NULL;
     }
+    if (not_valid(self)) return NULL;
 
     LDAP_BEGIN_ALLOW_THREADS( self );
     ldaperror = ldap_whoami_s( self->ldap, &bvalue, server_ldcs, client_ldcs );
