@@ -1,3 +1,9 @@
+python-ldap (2.4.22-0.1bb1) UNRELEASED; urgency=medium
+
+  * Balabit patched version
+
+ -- Balabit Platform Team <devnull@dev.null>  Fri, 04 Nov 2016 14:17:04 +0100
+
 python-ldap (2.4.22-0.1) unstable; urgency=medium
 
   * Non-maintainer upload.
