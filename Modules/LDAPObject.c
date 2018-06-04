@@ -1210,14 +1210,16 @@ l_ldap_whoami_s( LDAPObject* self, PyObject* args )
 static PyObject*
 l_ldap_start_tls_s( LDAPObject* self, PyObject* args )
 {
-    int result;
+    int ldaperror;
 
     if (!PyArg_ParseTuple( args, "" )) return NULL;
     if (not_valid(self)) return NULL;
 
-    result = ldap_start_tls_s( self->ldap, NULL, NULL );
-    if ( result != LDAP_SUCCESS ){
-        ldap_set_option(self->ldap, LDAP_OPT_ERROR_NUMBER, &result);
+    LDAP_BEGIN_ALLOW_THREADS( self );
+    ldaperror = ldap_start_tls_s( self->ldap, NULL, NULL );
+    LDAP_END_ALLOW_THREADS( self );
+    if ( ldaperror != LDAP_SUCCESS ){
+        ldap_set_option(self->ldap, LDAP_OPT_ERROR_NUMBER, &ldaperror);
         return LDAPerror( self->ldap, "ldap_start_tls_s" );
     }
 
