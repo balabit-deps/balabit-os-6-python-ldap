@@ -1,3 +1,10 @@
+python-ldap (2.4.22-0.1bb2) UNRELEASED; urgency=medium
+
+  * Balabit patched version
+  * Fix STARTTLS GIL release
+
+ -- Balabit Core Team <coreteam@dev.null>  Mon, 04 Jun 2018 04:20:00 +0100
+
 python-ldap (2.4.22-0.1bb1) UNRELEASED; urgency=medium
 
   * Balabit patched version
